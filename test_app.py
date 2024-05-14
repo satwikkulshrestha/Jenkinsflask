@@ -1,7 +1,7 @@
-import unittest
+import pytest
 from app import app
 
-class TestApp(unittest.TestCase):
+class TestApp(pytest.TestCase):
 
     def setUp(self):
         self.app = app.test_client()
@@ -13,4 +13,4 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.data.decode('utf-8'), 'Hello World')
 
 if __name__ == '__main__':
-    unittest.main()
+    pytest.main()
