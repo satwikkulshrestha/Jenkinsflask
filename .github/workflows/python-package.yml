@@ -38,3 +38,17 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+build and push docker image to docker hub:
+  runs on: ubuntu-latest
+  steps:
+  -  name: login to dockerhub
+     uses: docker/login-action@v3.1.0
+     with:
+        username: ${{secret.DockerUsername}}
+        password: ${{secret.DockerPassword}}
+  -  name: Build and push
+     uses: docker/build-push-action@v5.3.0
+     with:
+       push: true
+       tag: satwikkulshrestha/pythonsamplecode:latest
+    
