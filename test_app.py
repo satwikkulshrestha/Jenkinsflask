@@ -1,7 +1,19 @@
-from app import app
+# test_app.py
 
+import pytest
+from app import create_app
+from urllib.parse import quote
 
-def test_hello():
-    response = app.test_client().get('/')
+@pytest.fixture
+def app():
+    return create_app()
+
+@pytest.fixture
+def client(app):
+    return app.test_client()
+
+def test_home(client):
+    response = client.get('/')
     assert response.status_code == 200
-    assert response.data == b'Hello world!!!'
+    expected_text = 'gfg'
+    assert expected_text.encode() in response.data
