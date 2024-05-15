@@ -6,7 +6,7 @@ def create_app():
 
     @app.route('/')
     def home():
-        return quote('GFGGGGGG')
+        return quote('gfg')
 
     return app
 
