@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . /app
 
 RUN pip install --upgrade pip && \
-pip install -r requirement.txt
+pip install -r requirementss.txt
 
 EXPOSE 80
 
